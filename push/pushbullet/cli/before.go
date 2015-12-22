@@ -19,6 +19,9 @@ func Before(c *cli.Context) error {
 	}
 
 	pushbullet_msg_tmpl := c.String("tmpl")
+	if pushbullet_msg_tmpl == "" {
+		pushbullet_msg_tmpl = NotificationTmpl
+	}
 	gen, err := tmpl.New("pushbullet").Parse(pushbullet_msg_tmpl)
 	if err != nil {
 		return err

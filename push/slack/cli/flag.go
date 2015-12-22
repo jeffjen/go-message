@@ -4,8 +4,8 @@ import (
 	cli "github.com/codegangsta/cli"
 )
 
-const (
-	DefaultNotificationTmpl = "{{.}}"
+var (
+	NotificationTmpl = "{{.}}"
 )
 
 var (
@@ -23,7 +23,6 @@ var (
 		},
 		cli.StringFlag{
 			Name:   "tmpl",
-			Value:  DefaultNotificationTmpl,
 			EnvVar: "SLACK_TMPL",
 			Usage:  "Slack message template",
 		},

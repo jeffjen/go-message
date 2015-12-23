@@ -2,10 +2,14 @@ package cli
 
 import (
 	cli "github.com/codegangsta/cli"
+
+	tmpl "text/template"
 )
 
 var (
 	NotificationTmpl = "{{.}}"
+
+	FuncMap tmpl.FuncMap
 )
 
 var (

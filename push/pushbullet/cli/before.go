@@ -22,7 +22,7 @@ func Before(c *cli.Context) error {
 	if pushbullet_msg_tmpl == "" {
 		pushbullet_msg_tmpl = NotificationTmpl
 	}
-	gen, err := tmpl.New("pushbullet").Parse(pushbullet_msg_tmpl)
+	gen, err := tmpl.New("pushbullet").Funcs(FuncMap).Parse(pushbullet_msg_tmpl)
 	if err != nil {
 		return err
 	}

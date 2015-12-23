@@ -24,7 +24,7 @@ func Before(c *cli.Context) error {
 	if slack_msg_tmpl == "" {
 		slack_msg_tmpl = NotificationTmpl
 	}
-	gen, err := tmpl.New("slack").Parse(slack_msg_tmpl)
+	gen, err := tmpl.New("slack").Funcs(FuncMap).Parse(slack_msg_tmpl)
 	if err != nil {
 		return err
 	}

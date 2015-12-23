@@ -97,3 +97,11 @@ func (p *PushBullet) PushData(c ctx.Context, data Payload) error {
 		return nil
 	}
 }
+
+func (p *PushBullet) Funcs(fm tmpl.FuncMap) *tmpl.Template {
+	return p.NotificationTmpl.Funcs(fm)
+}
+
+func (p *PushBullet) Template() *tmpl.Template {
+	return p.NotificationTmpl
+}

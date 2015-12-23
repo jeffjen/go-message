@@ -63,3 +63,11 @@ func (s *Slack) PushData(c ctx.Context, data Payload) error {
 		return nil
 	}
 }
+
+func (s *Slack) Funcs(fm tmpl.FuncMap) *tmpl.Template {
+	return s.NotificationTmpl.Funcs(fm)
+}
+
+func (s *Slack) Template() *tmpl.Template {
+	return s.NotificationTmpl
+}

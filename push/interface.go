@@ -14,3 +14,17 @@ type Pusher interface {
 	Template() *tmpl.Template
 	Funcs(fm tmpl.FuncMap) *tmpl.Template
 }
+
+type NullPusher struct{}
+
+func (n *NullPusher) Push(c ctx.Context, data interface{}) error {
+	return nil
+}
+
+func (n *NullPusher) Template() *tmpl.Template {
+	return nil
+}
+
+func (n *NullPusher) Funcs(fm tmpl.FuncMap) *tmpl.Template {
+	return nil
+}
